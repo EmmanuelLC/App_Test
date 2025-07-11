@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from math import pi
 from scipy import special
 import json
 import os
@@ -14,7 +13,7 @@ def SignalFunction(T, nbpt, t0, tf, td, deltaeps, A, sigma, D):
     Deltat = (tf - t0) / nbpt
     t = np.arange(t0 + deltaeps, tf + deltaeps - Deltat, Deltat)
     f = 1 / T
-    w = 2 * pi * f
+    w = 2 * np.pi * f
     s = np.sin(w * (t - td))
     Env = A * np.exp(-(-w * (t - td))**2 / (2 * sigma**2)) + D
     signaltemp = Env * s
